@@ -10,6 +10,7 @@ import SeoMeta from "@/partials/SeoMeta";
 import { notFound } from "next/navigation";
 import { Post } from "types";
 const { blog_folder, pagination } = config.settings;
+export const dynamicParams = false; // true | false,
 
 export const generateStaticParams = () => {
   const allPost: Post[] = getSinglePage(blog_folder);
