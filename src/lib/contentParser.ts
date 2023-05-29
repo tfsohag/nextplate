@@ -1,5 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
+import { notFound } from "next/navigation";
 import path from "path";
 
 const contentPath = "src/content";
@@ -42,14 +43,7 @@ export const getSinglePage = (folder: string) => {
   const folderPath = path.join(contentPath, folder);
 
   if (!fs.existsSync(folderPath) || !fs.lstatSync(folderPath).isDirectory()) {
-    return [
-      {
-        notFound: true,
-        frontmatter: {},
-        slug: "",
-        content: "",
-      },
-    ];
+    notFound()
   }
 
   const filesPath = fs.readdirSync(folderPath);
@@ -66,7 +60,6 @@ export const getSinglePage = (folder: string) => {
     const url = frontmatter.url ? frontmatter.url.replace("/", "") : slug;
 
     return {
-      notFound: false,
       frontmatter: parseFrontmatter(frontmatter),
       slug: url,
       content,

@@ -53,8 +53,6 @@ const Posts = ({ params }: { params: { page: number } }) => {
   const indexOfFirstPost = indexOfLastPost - pagination;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
-  !spreadPages(totalPages).includes(Number(params.page)) && notFound();
-
   return (
     <>
       <SeoMeta

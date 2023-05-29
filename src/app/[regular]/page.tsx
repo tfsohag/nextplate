@@ -2,7 +2,6 @@ import MDXContent from "@/components/MDXContent";
 import { getSinglePage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
-import { notFound } from "next/navigation";
 
 export const dynamicParams = false; // true | false,
 
@@ -24,9 +23,7 @@ export const generateStaticParams = () => {
 // for all regular pages
 const RegularPages = ({ params }: { params: { regular: string } }) => {
   const regularData = getSinglePage("pages");
-  regularData[0].notFound && notFound();
   const data = regularData.filter((page) => page.slug === params.regular)[0];
-  !data && notFound();
   const { frontmatter, content } = data;
   const { title, meta_title, description, image } = frontmatter;
 
