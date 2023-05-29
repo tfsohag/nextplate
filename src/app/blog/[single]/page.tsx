@@ -11,6 +11,9 @@ import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+export const dynamicParams = false; // true | false,
+
 import {
   FaRegClock,
   FaRegFolder,
