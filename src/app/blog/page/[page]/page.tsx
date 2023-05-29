@@ -7,7 +7,6 @@ import { sortByDate } from "@/lib/utils/sortFunctions";
 import PageHeader from "@/partials/PageHeader";
 import PostSidebar from "@/partials/PostSidebar";
 import SeoMeta from "@/partials/SeoMeta";
-import { notFound } from "next/navigation";
 import { Post } from "types";
 const { blog_folder, pagination } = config.settings;
 export const dynamicParams = false; // true | false,

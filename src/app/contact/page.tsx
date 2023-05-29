@@ -4,6 +4,7 @@ import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "types";
 
+
 const Contact = async () => {
   const data: RegularPage = getListPage("pages/contact.md");
   const { frontmatter } = data;

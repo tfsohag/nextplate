@@ -6,9 +6,11 @@ import taxonomyFilter from "@/lib/utils/taxonomyFilter";
 import { humanize } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
-import { notFound } from "next/navigation";
 import { Post } from "types";
 const { blog_folder } = config.settings;
+
+export const dynamicParams = false; // true | false,
+
 
 type StaticParams = () => { single: string }[];
 
@@ -24,9 +26,7 @@ export const generateStaticParams: StaticParams = () => {
 
 const TagSingle = ({ params }: { params: { single: string } }) => {
   const posts: Post[] = getSinglePage(blog_folder);
-  posts[0].notFound && notFound();
   const filterByTags = taxonomyFilter(posts, "tags", params.single);
-  filterByTags.length < 1 && notFound();
 
   return (
     <>

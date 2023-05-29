@@ -21,18 +21,13 @@ export const getListPage = (filePath: string) => {
   const pageDataPath = path.join(contentPath, filePath);
 
   if (!fs.existsSync(pageDataPath)) {
-    return {
-      notFound: true,
-      frontmatter: {},
-      content: "",
-    };
-  }
+    notFound()
+}
 
   const pageData = readFile(pageDataPath);
   const { content, data: frontmatter } = matter(pageData);
 
   return {
-    notFound: false,
     frontmatter: parseFrontmatter(frontmatter),
     content,
   };

@@ -10,6 +10,8 @@ import { notFound } from "next/navigation";
 import { Post } from "types";
 const { blog_folder } = config.settings;
 
+export const dynamicParams = false; // true | false,
+
 type StaticParams = () => { single: string }[];
 
 export const generateStaticParams: StaticParams = () => {
@@ -24,9 +26,7 @@ export const generateStaticParams: StaticParams = () => {
 
 const CategorySingle = ({ params }: { params: { single: string } }) => {
   const posts: Post[] = getSinglePage(blog_folder);
-  posts[0].notFound && notFound();
   const filterByCategories = taxonomyFilter(posts, "categories", params.single);
-  filterByCategories.length < 1 && notFound();
 
   return (
     <>

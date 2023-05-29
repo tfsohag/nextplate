@@ -1,5 +1,4 @@
 export type RegularPage = {
-  notFound: boolean;
   frontmatter: {
     title: string;
     image?: string;
