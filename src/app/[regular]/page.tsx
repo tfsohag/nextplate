@@ -4,6 +4,9 @@ import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { notFound } from "next/navigation";
 
+export const dynamicParams = false; // true | false,
+
+
 export const generateStaticParams = () => {
   const getRegularPages = getSinglePage("pages");
 
